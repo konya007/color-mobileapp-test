@@ -1,11 +1,10 @@
 body {
     font-family: 'Segoe UI', Roboto, Arial, sans-serif;
-    /* background-color: var(--background-primary); */
+    background-color: var(--background-primary); 
     color: var(--text-primary);
     margin: 0;
     padding: 0;
     transition: all 0.3s ease;
-    background-color: #333;
 }
 
 .container {
@@ -448,7 +447,7 @@ footer {
 }
 
 .color-editor {
-    position: absolute;
+    position: fixed; /* thay vì absolute */
     top: 0;
     right: 0;
     bottom: 0;
@@ -457,6 +456,7 @@ footer {
     padding: 20px;
     overflow-y: auto;
     display: none;
+    max-width: 600px;
 }
 
 .color-editor.active {
@@ -531,8 +531,9 @@ footer {
     max-width: 500px;
     position: fixed;
     bottom: 0;
-    left: 0;
-    right: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
     background-color: var(--background-secondary);
     display: flex;
     justify-content: space-around;
@@ -1104,4 +1105,16 @@ main {
     gap: 5px;
     font-weight: 500;
     cursor: pointer;
+}
+
+.app-container {
+    max-width: 500px;
+    height: 100vh;
+    position: relative;
+    background-color: var(--background-primary);
+    color: var(--text-primary);
+    padding-bottom: 70px;
+    overflow: hidden;
+    overflow-y: auto;
+    margin: 0 auto; /* căn giữa */
 }

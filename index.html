@@ -44,7 +44,7 @@
 </head>
 
 <body>
-    <main>
+    <main class="app-container">
         <div class="status-bar">
             <span>20:45</span>
             <div>
@@ -835,7 +835,16 @@
                 Object.keys(colors).forEach(varName => {
                     document.documentElement.style.setProperty(varName, colors[varName]);
                 });
+            } else {
+                // Nếu không có màu tùy chỉnh, đảm bảo áp dụng màu mặc định của theme
+                const defaultColors = theme === 'dark' ? defaultDarkColors : defaultLightColors;
+                Object.keys(defaultColors).forEach(varName => {
+                    document.documentElement.style.setProperty(varName, defaultColors[varName]);
+                });
             }
+
+            // Đảm bảo body và main đều có màu nền chính xác
+            document.body.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--background-primary').trim();
         }
 
         // Initialize color controls in the editor
@@ -981,8 +990,30 @@
 
         // Listen for theme changes to load proper colors
         document.getElementById('themeToggle').addEventListener('change', function () {
-            // Wait a bit for the theme to be updated
-            setTimeout(loadCustomColors, 50);
+            if (this.checked) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+            }
+
+            // Đảm bảo áp dụng ngay lập tức
+            loadCustomColors();
+        });
+
+        // Thêm vào nút đăng nhập và đăng ký để lưu trạng thái đăng nhập
+        document.querySelectorAll('.auth-btn').forEach(btn => {
+            btn.addEventListener('click', function () {
+                localStorage.setItem('isLoggedIn', 'true');
+                navigateTo('home-page');
+            });
+        });
+
+        // Thêm vào nút đăng xuất
+        document.querySelector('.list-item[style*="color: var(--danger-color)"]').addEventListener('click', function () {
+            localStorage.removeItem('isLoggedIn');
+            navigateTo('login-page');
         });
     </script>
 </body>
