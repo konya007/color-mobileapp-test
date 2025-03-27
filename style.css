@@ -519,6 +519,8 @@ footer {
 
 .page {
     display: none;
+    height: calc(100vh - 70px);
+    overflow-y: auto;
 }
 
 .page.active {
@@ -891,4 +893,215 @@ main {
     padding-bottom: 70px;
     overflow: hidden;
     overflow-y: auto;
+}
+
+.comments-section {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border-color);
+}
+
+.comment-item {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.comment-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.comment-content {
+    margin-left: 50px;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.comment-actions {
+    margin-left: 50px;
+    display: flex;
+    gap: 15px;
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.comment-action {
+    cursor: pointer;
+}
+
+.comment-action:hover {
+    color: var(--accent-color);
+}
+
+.comment-replies {
+    margin-left: 50px;
+    margin-top: 10px;
+    padding-left: 10px;
+    border-left: 2px solid var(--border-color);
+}
+
+.reply-item {
+    margin-bottom: 10px;
+}
+
+.comment-form {
+    display: flex;
+    margin-top: 15px;
+    gap: 10px;
+}
+
+.comment-input {
+    flex: 1;
+    padding: 10px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    background-color: var(--background-primary);
+    color: var(--text-primary);
+}
+
+.comment-submit {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 0 15px;
+    cursor: pointer;
+}
+
+/* Chat styles */
+.chat-page {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.chat-header {
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    background-color: var(--background-secondary);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.chat-title {
+    flex: 1;
+    margin-left: 15px;
+}
+
+.chat-title h3 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.chat-title p {
+    margin: 0;
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.chat-body {
+    flex: 1;
+    /* max-height: calc(100% - 300px); */
+    padding: 15px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.message {
+    max-width: 80%;
+    padding: 10px 15px;
+    border-radius: 18px;
+    font-size: 14px;
+    position: relative;
+}
+
+.message-time {
+    font-size: 10px;
+    color: var(--text-secondary);
+    margin-top: 5px;
+    display: block;
+}
+
+.message-received {
+    align-self: flex-start;
+    background-color: var(--background-secondary);
+    border-bottom-left-radius: 5px;
+}
+
+.message-sent {
+    align-self: flex-end;
+    background-color: var(--accent-color);
+    color: white;
+    border-bottom-right-radius: 5px;
+}
+
+.message-status {
+    font-size: 10px;
+    text-align: right;
+    color: var(--text-secondary);
+}
+
+.chat-footer {
+    padding: 15px;
+    background-color: var(--background-secondary);
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.chat-input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 25px;
+    background-color: var(--background-primary);
+    color: var(--text-primary);
+}
+
+.send-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.attachment-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--background-primary);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.rental-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.rental-action-btn {
+    flex: 1;
+    padding: 12px 0;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    font-weight: 500;
+    cursor: pointer;
 }

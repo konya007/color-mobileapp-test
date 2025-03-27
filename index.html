@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,11 +38,11 @@
             --info-color: #0dcaf0;
             --border-color: #495057;
         }
-        
+
         /* Styles for auth pages */
-        
     </style>
 </head>
+
 <body>
     <main>
         <div class="status-bar">
@@ -52,7 +53,7 @@
                 <span><i class="bi bi-battery-full"></i></span>
             </div>
         </div>
-    
+
         <div class="theme-toggle">
             <label class="toggle-switch">
                 <input type="checkbox" id="themeToggle">
@@ -60,7 +61,7 @@
             </label>
             <span class="toggle-label">Chế độ tối</span>
         </div>
-    
+
         <!-- Trang đăng nhập -->
         <div class="page" id="login-page">
             <div class="auth-page">
@@ -83,25 +84,25 @@
                         </div>
                         <button type="button" class="auth-btn" onclick="navigateTo('home-page')">Đăng nhập</button>
                     </form>
-                    
+
                     <div class="auth-divider">
                         <span>hoặc</span>
                     </div>
-                    
+
                     <div class="auth-social">
                         <button class="google-btn">
                             <img src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png" alt="Google">
                             Đăng nhập với Google
                         </button>
                     </div>
-                    
+
                     <div class="auth-footer">
                         Chưa có tài khoản? <a href="#" onclick="navigateTo('register-page')">Đăng ký</a>
                     </div>
                 </div>
             </div>
         </div>
-    
+
         <!-- Trang đăng ký -->
         <div class="page" id="register-page">
             <div class="auth-page">
@@ -139,25 +140,25 @@
                         </div>
                         <button type="button" class="auth-btn" onclick="navigateTo('home-page')">Đăng ký</button>
                     </form>
-                    
+
                     <div class="auth-divider">
                         <span>hoặc</span>
                     </div>
-                    
+
                     <div class="auth-social">
                         <button class="google-btn">
                             <img src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png" alt="Google">
                             Đăng ký với Google
                         </button>
                     </div>
-                    
+
                     <div class="auth-footer">
                         Đã có tài khoản? <a href="#" onclick="navigateTo('login-page')">Đăng nhập</a>
                     </div>
                 </div>
             </div>
         </div>
-    
+
         <!-- Trang chủ -->
         <div class="page" id="home-page">
             <div class="container">
@@ -165,12 +166,12 @@
                     <h1>Tìm Nhà Trọ</h1>
                     <p>Ứng dụng tìm kiếm nhà trọ, phòng cho thuê nhanh chóng</p>
                 </header>
-    
+
                 <div class="search-bar">
                     <input type="text" placeholder="Tìm kiếm nhà trọ, chung cư..." class="search-input">
                     <button class="search-button"><i class="bi bi-search"></i></button>
                 </div>
-                
+
                 <div class="filter-tags">
                     <span class="tag">Gần trung tâm</span>
                     <span class="tag">Dưới 3 triệu</span>
@@ -178,7 +179,7 @@
                     <span class="tag">Có gác lửng</span>
                     <span class="tag">Wifi miễn phí</span>
                 </div>
-    
+
                 <!-- Rental Listing Posts -->
                 <div class="post-card" onclick="navigateTo('detail-page')">
                     <div class="post-header">
@@ -214,8 +215,32 @@
                     <div class="post-stats">
                         <span>15 lượt thích</span> • <span>5 bình luận</span>
                     </div>
+                    <div class="comments-section" style="display: none;" id="comments-demo">
+                        <div class="comment-item">
+                            <div class="comment-header">
+                                <img src="./assets/2.jpg" alt="Avatar" class="avatar">
+                                <div class="post-info">
+                                    <h4 class="post-author">Nguyễn Thị Hoa</h4>
+                                    <span class="post-time">3 ngày trước</span>
+                                </div>
+                            </div>
+                            <div class="comment-content">
+                                <p>Phòng này trông rất thoáng và sạch sẽ. Giá cả hợp lý!</p>
+                            </div>
+                            <div class="comment-actions">
+                                <span class="comment-action"><i class="bi bi-hand-thumbs-up"></i> Thích (3)</span>
+                                <span class="comment-action"><i class="bi bi-chat"></i> Phản hồi</span>
+                            </div>
+                        </div>
+
+                        <div class="comment-form">
+                            <img src="./assets/4.jpg" alt="Your Avatar" class="avatar">
+                            <input type="text" class="comment-input" placeholder="Viết bình luận của bạn...">
+                            <button class="comment-submit"><i class="bi bi-send"></i></button>
+                        </div>
+                    </div>
                 </div>
-    
+
                 <div class="post-card">
                     <div class="post-header">
                         <img src="./assets/2.jpg" alt="Avatar" class="avatar">
@@ -251,7 +276,7 @@
                         <span>23 lượt thích</span> • <span>8 bình luận</span>
                     </div>
                 </div>
-    
+
                 <div class="card">
                     <h3 class="card-title">Tin tức & Mẹo</h3>
                     <ul class="list">
@@ -264,7 +289,7 @@
                 </div>
             </div>
         </div>
-    
+
         <!-- Trang tìm kiếm -->
         <div class="page" id="search-page">
             <div class="container">
@@ -272,12 +297,12 @@
                     <h1>Tìm kiếm nhà trọ</h1>
                     <p>Tùy chỉnh các tiêu chí để tìm kiếm</p>
                 </header>
-    
+
                 <div class="search-bar">
                     <input type="text" placeholder="Nhập địa điểm, tên đường..." class="search-input">
                     <button class="search-button"><i class="bi bi-search"></i></button>
                 </div>
-    
+
                 <div class="card">
                     <h3 class="card-title">Bộ lọc tìm kiếm</h3>
                     <div class="form-group">
@@ -333,7 +358,7 @@
                     </div>
                     <button class="btn btn-primary">Áp dụng bộ lọc</button>
                 </div>
-    
+
                 <h3>Kết quả tìm kiếm gần đây</h3>
                 <div class="post-card">
                     <div class="post-header">
@@ -362,7 +387,7 @@
                 </div>
             </div>
         </div>
-    
+
         <!-- Trang chi tiết nhà trọ -->
         <div class="page" id="detail-page">
             <div class="rental-detail-header">
@@ -393,24 +418,31 @@
                 </div>
                 <div class="detail-section">
                     <h3>Mô tả</h3>
-                    <p>Cho thuê phòng trọ khu vực Cầu Giấy, diện tích 25m², có gác lửng, không chung chủ. Phòng mới xây, sạch sẽ, thoáng mát. Khu vực an ninh, gần trường đại học, siêu thị, chợ...</p>
-                    <p>Cơ sở vật chất đầy đủ: điều hòa, nóng lạnh, tủ quần áo, kệ bếp. Internet và nước sinh hoạt miễn phí. Giờ giấc tự do, không chung chủ.</p>
+                    <p>Cho thuê phòng trọ khu vực Cầu Giấy, diện tích 25m², có gác lửng, không chung chủ. Phòng mới xây,
+                        sạch sẽ, thoáng mát. Khu vực an ninh, gần trường đại học, siêu thị, chợ...</p>
+                    <p>Cơ sở vật chất đầy đủ: điều hòa, nóng lạnh, tủ quần áo, kệ bếp. Internet và nước sinh hoạt miễn
+                        phí. Giờ giấc tự do, không chung chủ.</p>
                 </div>
                 <div class="detail-section">
                     <h3>Tiện ích</h3>
                     <div class="amenities">
-                        <div class="amenity"><span class="amenity-icon"><i class="bi bi-droplet"></i></span> Nóng lạnh</div>
+                        <div class="amenity"><span class="amenity-icon"><i class="bi bi-droplet"></i></span> Nóng lạnh
+                        </div>
                         <div class="amenity"><span class="amenity-icon"><i class="bi bi-snow"></i></span> Điều hòa</div>
                         <div class="amenity"><span class="amenity-icon"><i class="bi bi-wifi"></i></span> Internet</div>
-                        <div class="amenity"><span class="amenity-icon"><i class="bi bi-house"></i></span> Gác lửng</div>
-                        <div class="amenity"><span class="amenity-icon"><i class="bi bi-tv"></i></span> Có nội thất</div>
-                        <div class="amenity"><span class="amenity-icon"><i class="bi bi-door-closed"></i></span> WC riêng</div>
+                        <div class="amenity"><span class="amenity-icon"><i class="bi bi-house"></i></span> Gác lửng
+                        </div>
+                        <div class="amenity"><span class="amenity-icon"><i class="bi bi-tv"></i></span> Có nội thất
+                        </div>
+                        <div class="amenity"><span class="amenity-icon"><i class="bi bi-door-closed"></i></span> WC
+                            riêng</div>
                     </div>
                 </div>
                 <div class="detail-section">
                     <h3>Vị trí</h3>
                     <p><i class="bi bi-geo-alt-fill"></i> Cầu Giấy, Hà Nội</p>
-                    <div style="background-color: var(--background-secondary); height: 200px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-top: 10px;">
+                    <div
+                        style="background-color: var(--background-secondary); height: 200px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-top: 10px;">
                         <span>Bản đồ vị trí</span>
                     </div>
                 </div>
@@ -422,12 +454,188 @@
                             <h4 class="post-author">Nguyễn Văn A</h4>
                             <span class="post-time">Phản hồi nhanh</span>
                         </div>
-                        <button class="btn btn-primary" style="padding: 8px 15px;"><i class="bi bi-telephone-fill"></i> Gọi</button>
+                        <button class="btn btn-primary" style="padding: 8px 15px;"><i class="bi bi-telephone-fill"></i>
+                            Gọi</button>
                     </div>
+                </div>
+                <div class="detail-section">
+                    <h3>Bình luận và đánh giá</h3>
+
+                    <div class="comments-section">
+                        <div class="comment-item">
+                            <div class="comment-header">
+                                <img src="./assets/2.jpg" alt="Avatar" class="avatar">
+                                <div class="post-info">
+                                    <h4 class="post-author">Nguyễn Thị Hoa</h4>
+                                    <span class="post-time">3 ngày trước</span>
+                                </div>
+                            </div>
+                            <div class="comment-content">
+                                <p>Tôi đã xem phòng này tuần trước, phòng sạch sẽ và thoáng mát. Khu vực yên tĩnh, gần
+                                    trường đại học.</p>
+                            </div>
+                            <div class="comment-actions">
+                                <span class="comment-action"><i class="bi bi-hand-thumbs-up"></i> Thích (5)</span>
+                                <span class="comment-action"><i class="bi bi-chat"></i> Phản hồi</span>
+                            </div>
+
+                            <div class="comment-replies">
+                                <div class="reply-item">
+                                    <div class="comment-header">
+                                        <img src="./assets/1.jpg" alt="Avatar" class="avatar">
+                                        <div class="post-info">
+                                            <h4 class="post-author">Nguyễn Văn A <span class="badge badge-primary">Chủ
+                                                    trọ</span></h4>
+                                            <span class="post-time">2 ngày trước</span>
+                                        </div>
+                                    </div>
+                                    <div class="comment-content">
+                                        <p>Cảm ơn bạn đã ghé thăm. Rất vui khi bạn thích phòng. Liên hệ với tôi nếu bạn
+                                            quan tâm nhé!</p>
+                                    </div>
+                                    <div class="comment-actions">
+                                        <span class="comment-action"><i class="bi bi-hand-thumbs-up"></i> Thích
+                                            (2)</span>
+                                        <span class="comment-action"><i class="bi bi-chat"></i> Phản hồi</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="comment-item">
+                            <div class="comment-header">
+                                <img src="./assets/3.jpg" alt="Avatar" class="avatar">
+                                <div class="post-info">
+                                    <h4 class="post-author">Trần Văn Bình</h4>
+                                    <span class="post-time">1 tuần trước</span>
+                                </div>
+                            </div>
+                            <div class="comment-content">
+                                <p>Phòng có điều hòa không vậy? Có đảm bảo an ninh ban đêm không?</p>
+                            </div>
+                            <div class="comment-actions">
+                                <span class="comment-action"><i class="bi bi-hand-thumbs-up"></i> Thích (1)</span>
+                                <span class="comment-action"><i class="bi bi-chat"></i> Phản hồi</span>
+                            </div>
+
+                            <div class="comment-replies">
+                                <div class="reply-item">
+                                    <div class="comment-header">
+                                        <img src="./assets/1.jpg" alt="Avatar" class="avatar">
+                                        <div class="post-info">
+                                            <h4 class="post-author">Nguyễn Văn A <span class="badge badge-primary">Chủ
+                                                    trọ</span></h4>
+                                            <span class="post-time">1 tuần trước</span>
+                                        </div>
+                                    </div>
+                                    <div class="comment-content">
+                                        <p>Phòng có điều hòa 1 HP mới lắp. Khu nhà trọ có camera an ninh và cổng khóa
+                                            điện tử, bạn yên tâm nhé!</p>
+                                    </div>
+                                    <div class="comment-actions">
+                                        <span class="comment-action"><i class="bi bi-hand-thumbs-up"></i> Thích
+                                            (3)</span>
+                                        <span class="comment-action"><i class="bi bi-chat"></i> Phản hồi</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="comment-form">
+                            <img src="./assets/4.jpg" alt="Your Avatar" class="avatar">
+                            <input type="text" class="comment-input" placeholder="Viết bình luận của bạn...">
+                            <button class="comment-submit"><i class="bi bi-send"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rental-actions">
+                    <button class="rental-action-btn btn-primary" onclick="navigateTo('chat-page')">
+                        <i class="bi bi-chat-dots-fill"></i> Chat với chủ trọ
+                    </button>
+                    <button class="rental-action-btn"
+                        style="background-color: var(--background-primary); color: var(--text-primary); border: 1px solid var(--border-color);">
+                        <i class="bi bi-calendar-check"></i> Đặt lịch xem phòng
+                    </button>
                 </div>
             </div>
         </div>
-    
+        <div class="page" id="chat-page">
+            <div class="chat-page">
+                <div class="chat-header">
+                    <button class="back-button" onclick="navigateTo('detail-page')"
+                        style="position: static; background-color: transparent; color: var(--text-primary);">
+                        <i class="bi bi-arrow-left"></i>
+                    </button>
+                    <img src="./assets/1.jpg" alt="Avatar" class="avatar">
+                    <div class="chat-title">
+                        <h3>Nguyễn Văn A</h3>
+                        <p>Chủ trọ • Trực tuyến</p>
+                    </div>
+                    <div>
+                        <i class="bi bi-telephone" style="margin-right: 15px; cursor: pointer;"></i>
+                        <i class="bi bi-three-dots-vertical" style="cursor: pointer;"></i>
+                    </div>
+                </div>
+
+                <div class="chat-body">
+                    <div class="message message-received">
+                        <p>Chào bạn, tôi là chủ phòng trọ ở Cầu Giấy. Bạn đã xem thông tin phòng của tôi phải không?</p>
+                        <span class="message-time">10:30 AM</span>
+                    </div>
+
+                    <div class="message message-sent">
+                        <p>Vâng, tôi rất quan tâm đến phòng trọ của bạn. Phòng còn trống không ạ?</p>
+                        <span class="message-time">10:32 AM</span>
+                        <div class="message-status">
+                            <i class="bi bi-check2-all"></i> Đã xem
+                        </div>
+                    </div>
+
+                    <div class="message message-received">
+                        <p>Phòng vẫn còn trống bạn nhé. Bạn có thể qua xem phòng vào lúc nào thuận tiện?</p>
+                        <span class="message-time">10:33 AM</span>
+                    </div>
+
+                    <div class="message message-sent">
+                        <p>Tôi có thể ghé xem vào chiều mai được không? Khoảng 5 giờ chiều.</p>
+                        <span class="message-time">10:35 AM</span>
+                        <div class="message-status">
+                            <i class="bi bi-check2-all"></i> Đã xem
+                        </div>
+                    </div>
+
+                    <div class="message message-received">
+                        <p>Được bạn. 5 giờ chiều mai nhé. Bạn có thể cho tôi xin số điện thoại để tiện liên lạc không?
+                        </p>
+                        <span class="message-time">10:36 AM</span>
+                    </div>
+
+                    <div class="message message-sent">
+                        <p>Số của tôi là 0912 345 678. Cảm ơn bạn!</p>
+                        <span class="message-time">10:38 AM</span>
+                        <div class="message-status">
+                            <i class="bi bi-check2-all"></i> Đã xem
+                        </div>
+                    </div>
+
+                    <div class="message message-received">
+                        <p>Tôi đã lưu số của bạn. Hẹn gặp bạn vào ngày mai nhé!</p>
+                        <span class="message-time">10:40 AM</span>
+                    </div>
+                </div>
+
+                <div class="chat-footer">
+                    <button class="attachment-button">
+                        <i class="bi bi-plus"></i>
+                    </button>
+                    <input type="text" class="chat-input" placeholder="Nhập tin nhắn...">
+                    <button class="send-button">
+                        <i class="bi bi-send"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
         <!-- Trang cá nhân -->
         <div class="page" id="profile-page">
             <div class="container">
@@ -451,7 +659,7 @@
                         </div>
                     </div>
                 </div>
-    
+
                 <div class="card">
                     <h3 class="card-title">Cài đặt tài khoản</h3>
                     <ul class="list">
@@ -461,10 +669,11 @@
                         <li class="list-item"><i class="bi bi-credit-card"></i> Phương thức thanh toán</li>
                         <li class="list-item"><i class="bi bi-question-circle"></i> Trợ giúp & Hỗ trợ</li>
                         <li class="list-item"><i class="bi bi-info-circle"></i> Về ứng dụng</li>
-                        <li class="list-item" style="color: var(--danger-color);"><i class="bi bi-box-arrow-right"></i> Đăng xuất</li>
+                        <li class="list-item" style="color: var(--danger-color);"><i class="bi bi-box-arrow-right"></i>
+                            Đăng xuất</li>
                     </ul>
                 </div>
-    
+
                 <div class="card">
                     <h3 class="card-title">Tin đã đăng</h3>
                     <div class="post-card" style="box-shadow: none; padding: 0; margin-bottom: 0;">
@@ -480,7 +689,7 @@
                 </div>
             </div>
         </div>
-    
+
         <!-- Bottom navigation for mobile -->
         <div class="bottom-nav">
             <a href="#" class="nav-item active" onclick="navigateTo('home-page')">
@@ -504,33 +713,36 @@
                 <div>Cá nhân</div>
             </a>
         </div>
-    
+
         <!-- Dev tool for color testing -->
         <button class="dev-tool" id="devToolToggle"><i class="bi bi-palette"></i></button>
-        
+
         <!-- Color editor panel -->
-        
+
     </main>
 
     <div class="color-editor" id="colorEditor">
         <h2>Tùy chỉnh màu sắc</h2>
         <p>Thay đổi màu sắc và xem trước kết quả ngay lập tức</p>
-        
+
         <div id="colorControls">
             <!-- Color inputs will be added here by JavaScript -->
         </div>
-        
+
         <div class="color-editor-actions">
-            <button style="background-color: var(--danger-color); color: white;" id="resetColors"><i class="bi bi-arrow-counterclockwise"></i> Khôi phục mặc định</button>
-            <button style="background-color: var(--success-color); color: white;" id="applyColors"><i class="bi bi-check-lg"></i> Áp dụng</button>
-            <button style="background-color: var(--border-color); color: var(--text-primary);" id="closeEditor"><i class="bi bi-x"></i> Đóng</button>
+            <button style="background-color: var(--danger-color); color: white;" id="resetColors"><i
+                    class="bi bi-arrow-counterclockwise"></i> Khôi phục mặc định</button>
+            <button style="background-color: var(--success-color); color: white;" id="applyColors"><i
+                    class="bi bi-check-lg"></i> Áp dụng</button>
+            <button style="background-color: var(--border-color); color: var(--text-primary);" id="closeEditor"><i
+                    class="bi bi-x"></i> Đóng</button>
         </div>
     </div>
 
     <script>
         // Toggle between light and dark theme
-        document.getElementById('themeToggle').addEventListener('change', function() {
-            if(this.checked) {
+        document.getElementById('themeToggle').addEventListener('change', function () {
+            if (this.checked) {
                 document.documentElement.setAttribute('data-theme', 'dark');
                 localStorage.setItem('theme', 'dark');
             } else {
@@ -538,42 +750,44 @@
                 localStorage.setItem('theme', 'light');
             }
         });
-        
+
         // Check for saved theme preference
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme === 'dark') {
             document.documentElement.setAttribute('data-theme', 'dark');
             document.getElementById('themeToggle').checked = true;
         }
-        
+
         // Navigation between pages
         function navigateTo(pageId) {
             // Hide all pages
             document.querySelectorAll('.page').forEach(page => {
                 page.classList.remove('active');
             });
-            
+
             // Show selected page
             document.getElementById(pageId).classList.add('active');
-            
+
             // Update navigation items
             document.querySelectorAll('.nav-item').forEach(item => {
                 item.classList.remove('active');
             });
-            
+
             // Find matching nav item and activate it
             const pageToNavMap = {
                 'home-page': 0,
                 'search-page': 1,
-                'profile-page': 4
+                'profile-page': 4,
+                'chat-page': null,  // Chat page doesn't correspond to a bottom nav item
+                'detail-page': null // Detail page doesn't correspond to a bottom nav item
             };
-            
+
             const navIndex = pageToNavMap[pageId];
-            if (navIndex !== undefined) {
+            if (navIndex !== undefined && navIndex !== null) {
                 document.querySelectorAll('.nav-item')[navIndex].classList.add('active');
             }
         }
-        
+
         // Dev tool for color testing
         const devToolToggle = document.getElementById('devToolToggle');
         const colorEditor = document.getElementById('colorEditor');
@@ -581,7 +795,7 @@
         const resetColorsBtn = document.getElementById('resetColors');
         const applyColorsBtn = document.getElementById('applyColors');
         const closeEditorBtn = document.getElementById('closeEditor');
-        
+
         // Default color values
         const defaultLightColors = {
             '--background-primary': '#f8f9fa',
@@ -596,7 +810,7 @@
             '--info-color': '#0dcaf0',
             '--border-color': '#dee2e6'
         };
-        
+
         const defaultDarkColors = {
             '--background-primary': '#212529',
             '--background-secondary': '#343a40',
@@ -610,12 +824,12 @@
             '--info-color': '#0dcaf0',
             '--border-color': '#495057'
         };
-        
+
         // Load custom colors from localStorage
         function loadCustomColors() {
             const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
             const savedColors = localStorage.getItem(`customColors_${theme}`);
-            
+
             if (savedColors) {
                 const colors = JSON.parse(savedColors);
                 Object.keys(colors).forEach(varName => {
@@ -623,7 +837,7 @@
                 });
             }
         }
-        
+
         // Initialize color controls in the editor
         function initColorControls() {
             colorControls.innerHTML = '';
@@ -631,44 +845,44 @@
             const defaultColors = theme === 'dark' ? defaultDarkColors : defaultLightColors;
             const savedColors = localStorage.getItem(`customColors_${theme}`);
             const currentColors = savedColors ? JSON.parse(savedColors) : defaultColors;
-            
+
             Object.keys(defaultColors).forEach(varName => {
                 const currentValue = currentColors[varName] || defaultColors[varName];
                 const varNameFormatted = varName.replace('--', '').replace(/-/g, ' ');
-                
+
                 const controlGroup = document.createElement('div');
                 controlGroup.className = 'color-picker-group';
-                
+
                 const label = document.createElement('label');
                 label.textContent = varNameFormatted;
                 label.for = `color_${varName}`;
-                
+
                 const colorInput = document.createElement('input');
                 colorInput.type = 'color';
                 colorInput.id = `color_${varName}`;
                 colorInput.value = currentValue;
                 colorInput.dataset.var = varName;
-                
+
                 const preview = document.createElement('div');
                 preview.className = 'color-sample-preview';
                 preview.style.backgroundColor = currentValue;
-                
+
                 const textInput = document.createElement('input');
                 textInput.type = 'text';
                 textInput.value = currentValue;
                 textInput.dataset.var = varName;
-                
+
                 // Update color on change
-                colorInput.addEventListener('input', function() {
+                colorInput.addEventListener('input', function () {
                     const value = this.value;
                     const varName = this.dataset.var;
                     document.documentElement.style.setProperty(varName, value);
                     preview.style.backgroundColor = value;
                     textInput.value = value;
                 });
-                
+
                 // Update from text input
-                textInput.addEventListener('input', function() {
+                textInput.addEventListener('input', function () {
                     const value = this.value;
                     const varName = this.dataset.var;
                     try {
@@ -679,7 +893,7 @@
                         // Invalid color format
                     }
                 });
-                
+
                 controlGroup.appendChild(label);
                 controlGroup.appendChild(colorInput);
                 controlGroup.appendChild(preview);
@@ -687,72 +901,90 @@
                 colorControls.appendChild(controlGroup);
             });
         }
-        
+
         // Save current colors to localStorage
         function saveCurrentColors() {
             const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
             const colors = {};
-            
+
             Object.keys(theme === 'dark' ? defaultDarkColors : defaultLightColors).forEach(varName => {
                 colors[varName] = getComputedStyle(document.documentElement).getPropertyValue(varName).trim();
             });
-            
+
             localStorage.setItem(`customColors_${theme}`, JSON.stringify(colors));
         }
-        
+
         // Reset colors to default
         function resetColors() {
             const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
             const defaultColors = theme === 'dark' ? defaultDarkColors : defaultLightColors;
-            
+
             Object.keys(defaultColors).forEach(varName => {
                 document.documentElement.style.setProperty(varName, defaultColors[varName]);
             });
-            
+
             // Remove saved custom colors
             localStorage.removeItem(`customColors_${theme}`);
-            
+
             // Reinitialize controls
             initColorControls();
         }
-        
+
         // Toggle dev tool
-        devToolToggle.addEventListener('click', function() {
+        devToolToggle.addEventListener('click', function () {
             colorEditor.classList.add('active');
             initColorControls();
         });
-        
+
         // Close color editor
-        closeEditorBtn.addEventListener('click', function() {
+        closeEditorBtn.addEventListener('click', function () {
             colorEditor.classList.remove('active');
             loadCustomColors(); // Reset to saved colors if canceled
         });
-        
+
         // Reset colors
         resetColorsBtn.addEventListener('click', resetColors);
-        
+
         // Apply colors
-        applyColorsBtn.addEventListener('click', function() {
+        applyColorsBtn.addEventListener('click', function () {
             saveCurrentColors();
             colorEditor.classList.remove('active');
         });
-        
+
         // Load saved colors on page load
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             loadCustomColors();
-            
+
             // Kiểm tra xem người dùng đã đăng nhập chưa
             const isLoggedIn = localStorage.getItem('isLoggedIn');
             if (!isLoggedIn) {
                 navigateTo('login-page');
             }
+
+            const commentButtons = document.querySelectorAll('.action-button:nth-child(2)');
+            commentButtons.forEach(button => {
+                button.addEventListener('click', function (e) {
+                    e.stopPropagation(); // Prevent post card click
+                    const postCard = this.closest('.post-card');
+                    const commentsDemo = document.getElementById('comments-demo');
+                    if (commentsDemo) {
+                        if (commentsDemo.style.display === 'none') {
+                            commentsDemo.style.display = 'block';
+                            postCard.appendChild(commentsDemo);
+                        } else {
+                            commentsDemo.style.display = 'none';
+                        }
+                    }
+                });
+            });
         });
-        
+
         // Listen for theme changes to load proper colors
-        document.getElementById('themeToggle').addEventListener('change', function() {
+        document.getElementById('themeToggle').addEventListener('change', function () {
             // Wait a bit for the theme to be updated
             setTimeout(loadCustomColors, 50);
         });
     </script>
 </body>
+
 </html>
