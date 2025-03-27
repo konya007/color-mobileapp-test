@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tìm Nhà Trọ - Ứng dụng tìm kiếm nhà trọ</title>
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        :root {
+            /* Light theme color variables */
+            --background-primary: #f8f9fa;
+            --background-secondary: #e9ecef;
+            --text-primary: #212529;
+            --text-secondary: #6c757d;
+            --accent-color: #0d6efd;
+            --accent-color-light: #cfe2ff;
+            --success-color: #198754;
+            --warning-color: #ffc107;
+            --danger-color: #dc3545;
+            --info-color: #0dcaf0;
+            --border-color: #dee2e6;
+        }
+
+        [data-theme="dark"] {
+            /* Dark theme color variables */
+            --background-primary: #212529;
+            --background-secondary: #343a40;
+            --text-primary: #f8f9fa;
+            --text-secondary: #adb5bd;
+            --accent-color: #0d6efd;
+            --accent-color-light: #0d47a1;
+            --success-color: #28a745;
+            --warning-color: #ffc107;
+            --danger-color: #dc3545;
+            --info-color: #0dcaf0;
+            --border-color: #495057;
+        }
+    </style>
+</head>
+<body>
+    <div class="theme-toggle">
+        <label class="toggle-switch">
+            <input type="checkbox" id="themeToggle">
+            <span class="toggle-slider"></span>
+        </label>
+        <span class="toggle-label">Chế độ tối</span>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>Tìm Nhà Trọ</h1>
+            <p>Ứng dụng tìm kiếm nhà trọ, phòng cho thuê nhanh chóng</p>
+        </header>
+
+        <section>
+            <h2>Bảng màu hiện tại</h2>
+            <div class="color-sample">
+                <div class="color-box" style="background-color: var(--background-primary);">Nền chính</div>
+                <div class="color-box" style="background-color: var(--background-secondary);">Nền phụ</div>
+                <div class="color-box" style="background-color: var(--text-primary);">Chữ chính</div>
+                <div class="color-box" style="background-color: var(--text-secondary);">Chữ phụ</div>
+                <div class="color-box" style="background-color: var(--accent-color);">Màu nhấn</div>
+                <div class="color-box" style="background-color: var(--accent-color-light);">Màu nhấn nhạt</div>
+                <div class="color-box" style="background-color: var(--success-color);">Màu thành công</div>
+                <div class="color-box" style="background-color: var(--warning-color);">Màu cảnh báo</div>
+                <div class="color-box" style="background-color: var(--danger-color);">Màu nguy hiểm</div>
+                <div class="color-box" style="background-color: var(--info-color);">Màu thông tin</div>
+            </div>
+        </section>
+
+        <div class="search-bar">
+            <input type="text" placeholder="Tìm kiếm nhà trọ, chung cư..." class="search-input">
+            <button class="search-button"><i class="search-icon">🔍</i></button>
+        </div>
+
+        <div class="menu">
+            <a href="#" class="menu-item active">Trang chủ</a>
+            <a href="#" class="menu-item">Tìm kiếm</a>
+            <a href="#" class="menu-item">Yêu thích</a>
+            <a href="#" class="menu-item">Cá nhân</a>
+        </div>
+        
+        <div class="filter-tags">
+            <span class="tag">Gần trung tâm</span>
+            <span class="tag">Dưới 3 triệu</span>
+            <span class="tag">Chung cư mini</span>
+            <span class="tag">Có gác lửng</span>
+            <span class="tag">Wifi miễn phí</span>
+        </div>
+
+        <!-- Rental Listing Posts -->
+        <div class="post-card">
+            <div class="post-header">
+                <img src="./assets/1.jpg" alt="Avatar" class="avatar">
+                <div class="post-info">
+                    <h4 class="post-author">Nguyễn Văn A</h4>
+                    <span class="post-time">2 giờ trước</span>
+                </div>
+                <div class="post-menu">⋮</div>
+            </div>
+            <div class="post-content">
+                <p>Cho thuê phòng trọ khu vực Cầu Giấy, diện tích 25m², có gác lửng, không chung chủ.</p>
+                <p class="price">2.800.000đ/tháng</p>
+                <p class="location"><i class="location-icon">📍</i> Cầu Giấy, Hà Nội</p>
+            </div>
+            <div class="image-gallery">
+                <div class="image-slider">
+                    <img src="./assets/1.jpg" alt="Ảnh phòng trọ 1" class="gallery-image">
+                    <img src="./assets/2.jpg" alt="Ảnh phòng trọ 2" class="gallery-image">
+                    <img src="./assets/3.jpg" alt="Ảnh phòng trọ 3" class="gallery-image">
+                </div>
+                <div class="image-indicators">
+                    <span class="indicator active"></span>
+                    <span class="indicator"></span>
+                    <span class="indicator"></span>
+                </div>
+            </div>
+            <div class="post-actions">
+                <button class="action-button"><i class="icon">❤️</i> Yêu thích</button>
+                <button class="action-button"><i class="icon">💬</i> Bình luận</button>
+                <button class="action-button"><i class="icon">🔗</i> Chia sẻ</button>
+            </div>
+            <div class="post-stats">
+                <span>15 lượt thích</span> • <span>5 bình luận</span>
+            </div>
+        </div>
+
+        <div class="post-card">
+            <div class="post-header">
+                <img src="./assets/2.jpg" alt="Avatar" class="avatar">
+                <div class="post-info">
+                    <h4 class="post-author">Trần Thị B</h4>
+                    <span class="post-time">5 giờ trước</span>
+                </div>
+                <div class="post-menu">⋮</div>
+            </div>
+            <div class="post-content">
+                <p>Căn hộ mini cho thuê tại Tân Bình, 35m², đầy đủ nội thất, an ninh 24/7.</p>
+                <p class="price">3.500.000đ/tháng</p>
+                <p class="location"><i class="location-icon">📍</i> Tân Bình, TP.HCM</p>
+            </div>
+            <div class="image-gallery">
+                <div class="image-slider">
+                    <img src="./assets/4.jpg" alt="Ảnh căn hộ 1" class="gallery-image">
+                    <img src="./assets/5.jpg" alt="Ảnh căn hộ 2" class="gallery-image">
+                    <img src="./assets/6.jpg" alt="Ảnh căn hộ 3" class="gallery-image">
+                </div>
+                <div class="image-indicators">
+                    <span class="indicator active"></span>
+                    <span class="indicator"></span>
+                    <span class="indicator"></span>
+                </div>
+            </div>
+            <div class="post-actions">
+                <button class="action-button"><i class="icon">❤️</i> Yêu thích</button>
+                <button class="action-button"><i class="icon">💬</i> Bình luận</button>
+                <button class="action-button"><i class="icon">🔗</i> Chia sẻ</button>
+            </div>
+            <div class="post-stats">
+                <span>23 lượt thích</span> • <span>8 bình luận</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">Tìm kiếm nhà trọ theo tiêu chí</h3>
+            <div class="form-group">
+                <label for="location">Khu vực</label>
+                <select id="location" class="form-control">
+                    <option>Chọn khu vực</option>
+                    <option>Quận Cầu Giấy</option>
+                    <option>Quận Hai Bà Trưng</option>
+                    <option>Quận Đống Đa</option>
+                    <option>Quận Hoàn Kiếm</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="price">Giá thuê</label>
+                <select id="price" class="form-control">
+                    <option>Chọn khoảng giá</option>
+                    <option>Dưới 2 triệu</option>
+                    <option>2 - 3 triệu</option>
+                    <option>3 - 5 triệu</option>
+                    <option>Trên 5 triệu</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="type">Loại hình</label>
+                <select id="type" class="form-control">
+                    <option>Chọn loại hình</option>
+                    <option>Phòng trọ</option>
+                    <option>Căn hộ mini</option>
+                    <option>Chung cư</option>
+                    <option>Nhà nguyên căn</option>
+                </select>
+            </div>
+            <button class="btn btn-primary">Tìm kiếm ngay</button>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">Tin tức & Mẹo</h3>
+            <ul class="list">
+                <li class="list-item">Mẹo tìm phòng trọ giá rẻ <span class="badge badge-primary">Mới</span></li>
+                <li class="list-item">Kinh nghiệm đàm phán giá thuê</li>
+                <li class="list-item">Những điều cần biết khi ký hợp đồng thuê nhà</li>
+                <li class="list-item">Cách nhận biết nhà trọ an toàn</li>
+                <li class="list-item">Chia sẻ kinh nghiệm thuê nhà lần đầu</li>
+            </ul>
+        </div>
+
+        <footer>
+            <p>&copy; 2023 - Ứng dụng Tìm Nhà Trọ</p>
+            <div class="footer-links">
+                <a href="#">Về chúng tôi</a> | 
+                <a href="#">Điều khoản</a> | 
+                <a href="#">Chính sách</a> | 
+                <a href="#">Liên hệ</a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Toggle between light and dark theme
+        document.getElementById('themeToggle').addEventListener('change', function() {
+            if(this.checked) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            } else {
+                document.documentElement.removeAttribute('data-theme');
+            }
+        });
+    </script>
+</body>
+</html>
