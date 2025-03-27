@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tìm Nhà Trọ - Ứng dụng tìm kiếm nhà trọ</title>
+    <link rel="stylesheet" href="./style.css">
+    <!-- Thêm Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        :root {
+            /* Light theme color variables */
+            --background-primary: #f8f9fa;
+            --background-secondary: #e9ecef;
+            --text-primary: #212529;
+            --text-secondary: #6c757d;
+            --accent-color: #0d6efd;
+            --accent-color-light: #cfe2ff;
+            --success-color: #198754;
+            --warning-color: #ffc107;
+            --danger-color: #dc3545;
+            --info-color: #0dcaf0;
+            --border-color: #dee2e6;
+        }
+
+        [data-theme="dark"] {
+            /* Dark theme color variables */
+            --background-primary: #212529;
+            --background-secondary: #343a40;
+            --text-primary: #f8f9fa;
+            --text-secondary: #adb5bd;
+            --accent-color: #0d6efd;
+            --accent-color-light: #0d47a1;
+            --success-color: #28a745;
+            --warning-color: #ffc107;
+            --danger-color: #dc3545;
+            --info-color: #0dcaf0;
+            --border-color: #495057;
+        }
+        
+        /* Styles for auth pages */
+        
+    </style>
+</head>
+<body>
+    <main>
+        <div class="status-bar">
+            <span>20:45</span>
+            <div>
+                <span><i class="bi bi-reception-4"></i></span>
+                <span><i class="bi bi-wifi"></i></span>
+                <span><i class="bi bi-battery-full"></i></span>
+            </div>
+        </div>
+    
+        <div class="theme-toggle">
+            <label class="toggle-switch">
+                <input type="checkbox" id="themeToggle">
+                <span class="toggle-slider"></span>
+            </label>
+            <span class="toggle-label">Chế độ tối</span>
+        </div>
+    
+        <!-- Trang đăng nhập -->
+        <div class="page" id="login-page">
+            <div class="auth-page">
+                <div class="auth-container">
+                    <div class="auth-logo">
+                        <img src="./assets/1.jpg" alt="Logo">
+                    </div>
+                    <h2 class="auth-title">Đăng nhập</h2>
+                    <form class="auth-form">
+                        <div class="form-field">
+                            <label for="login-email">Email</label>
+                            <input type="email" id="login-email" placeholder="Nhập email của bạn">
+                        </div>
+                        <div class="form-field">
+                            <label for="login-password">Mật khẩu</label>
+                            <input type="password" id="login-password" placeholder="Nhập mật khẩu">
+                        </div>
+                        <div class="forgot-password">
+                            <a href="#">Quên mật khẩu?</a>
+                        </div>
+                        <button type="button" class="auth-btn" onclick="navigateTo('home-page')">Đăng nhập</button>
+                    </form>
+                    
+                    <div class="auth-divider">
+                        <span>hoặc</span>
+                    </div>
+                    
+                    <div class="auth-social">
+                        <button class="google-btn">
+                            <img src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png" alt="Google">
+                            Đăng nhập với Google
+                        </button>
+                    </div>
+                    
+                    <div class="auth-footer">
+                        Chưa có tài khoản? <a href="#" onclick="navigateTo('register-page')">Đăng ký</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Trang đăng ký -->
+        <div class="page" id="register-page">
+            <div class="auth-page">
+                <div class="auth-container">
+                    <div class="auth-logo">
+                        <img src="./assets/1.jpg" alt="Logo">
+                    </div>
+                    <h2 class="auth-title">Đăng ký tài khoản</h2>
+                    <form class="auth-form">
+                        <div class="form-field-inline">
+                            <div class="form-field">
+                                <label for="register-firstname">Họ</label>
+                                <input type="text" id="register-firstname" placeholder="Họ">
+                            </div>
+                            <div class="form-field">
+                                <label for="register-lastname">Tên</label>
+                                <input type="text" id="register-lastname" placeholder="Tên">
+                            </div>
+                        </div>
+                        <div class="form-field">
+                            <label for="register-email">Email</label>
+                            <input type="email" id="register-email" placeholder="Nhập email của bạn">
+                        </div>
+                        <div class="form-field">
+                            <label for="register-phone">Số điện thoại</label>
+                            <input type="tel" id="register-phone" placeholder="Nhập số điện thoại">
+                        </div>
+                        <div class="form-field">
+                            <label for="register-password">Mật khẩu</label>
+                            <input type="password" id="register-password" placeholder="Tạo mật khẩu">
+                        </div>
+                        <div class="form-field">
+                            <label for="register-confirm-password">Xác nhận mật khẩu</label>
+                            <input type="password" id="register-confirm-password" placeholder="Nhập lại mật khẩu">
+                        </div>
+                        <button type="button" class="auth-btn" onclick="navigateTo('home-page')">Đăng ký</button>
+                    </form>
+                    
+                    <div class="auth-divider">
+                        <span>hoặc</span>
+                    </div>
+                    
+                    <div class="auth-social">
+                        <button class="google-btn">
+                            <img src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png" alt="Google">
+                            Đăng ký với Google
+                        </button>
+                    </div>
+                    
+                    <div class="auth-footer">
+                        Đã có tài khoản? <a href="#" onclick="navigateTo('login-page')">Đăng nhập</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Trang chủ -->
+        <div class="page" id="home-page">
+            <div class="container">
+                <header>
+                    <h1>Tìm Nhà Trọ</h1>
+                    <p>Ứng dụng tìm kiếm nhà trọ, phòng cho thuê nhanh chóng</p>
+                </header>
+    
+                <div class="search-bar">
+                    <input type="text" placeholder="Tìm kiếm nhà trọ, chung cư..." class="search-input">
+                    <button class="search-button"><i class="bi bi-search"></i></button>
+                </div>
+                
+                <div class="filter-tags">
+                    <span class="tag">Gần trung tâm</span>
+                    <span class="tag">Dưới 3 triệu</span>
+                    <span class="tag">Chung cư mini</span>
+                    <span class="tag">Có gác lửng</span>
+                    <span class="tag">Wifi miễn phí</span>
+                </div>
+    
+                <!-- Rental Listing Posts -->
+                <div class="post-card" onclick="navigateTo('detail-page')">
+                    <div class="post-header">
+                        <img src="./assets/1.jpg" alt="Avatar" class="avatar">
+                        <div class="post-info">
+                            <h4 class="post-author">Nguyễn Văn A</h4>
+                            <span class="post-time">2 giờ trước</span>
+                        </div>
+                        <div class="post-menu"><i class="bi bi-three-dots-vertical"></i></div>
+                    </div>
+                    <div class="post-content">
+                        <p>Cho thuê phòng trọ khu vực Cầu Giấy, diện tích 25m², có gác lửng, không chung chủ.</p>
+                        <p class="price">2.800.000đ/tháng</p>
+                        <p class="location"><i class="bi bi-geo-alt-fill"></i> Cầu Giấy, Hà Nội</p>
+                    </div>
+                    <div class="image-gallery">
+                        <div class="image-slider">
+                            <img src="./assets/1.jpg" alt="Ảnh phòng trọ 1" class="gallery-image">
+                            <img src="./assets/2.jpg" alt="Ảnh phòng trọ 2" class="gallery-image">
+                            <img src="./assets/3.jpg" alt="Ảnh phòng trọ 3" class="gallery-image">
+                        </div>
+                        <div class="image-indicators">
+                            <span class="indicator active"></span>
+                            <span class="indicator"></span>
+                            <span class="indicator"></span>
+                        </div>
+                    </div>
+                    <div class="post-actions">
+                        <button class="action-button"><i class="bi bi-heart"></i> Yêu thích</button>
+                        <button class="action-button"><i class="bi bi-chat"></i> Bình luận</button>
+                        <button class="action-button"><i class="bi bi-share"></i> Chia sẻ</button>
+                    </div>
+                    <div class="post-stats">
+                        <span>15 lượt thích</span> • <span>5 bình luận</span>
+                    </div>
+                </div>
+    
+                <div class="post-card">
+                    <div class="post-header">
+                        <img src="./assets/2.jpg" alt="Avatar" class="avatar">
+                        <div class="post-info">
+                            <h4 class="post-author">Trần Thị B</h4>
+                            <span class="post-time">5 giờ trước</span>
+                        </div>
+                        <div class="post-menu"><i class="bi bi-three-dots-vertical"></i></div>
+                    </div>
+                    <div class="post-content">
+                        <p>Căn hộ mini cho thuê tại Tân Bình, 35m², đầy đủ nội thất, an ninh 24/7.</p>
+                        <p class="price">3.500.000đ/tháng</p>
+                        <p class="location"><i class="bi bi-geo-alt-fill"></i> Tân Bình, TP.HCM</p>
+                    </div>
+                    <div class="image-gallery">
+                        <div class="image-slider">
+                            <img src="./assets/4.jpg" alt="Ảnh căn hộ 1" class="gallery-image">
+                            <img src="./assets/5.jpg" alt="Ảnh căn hộ 2" class="gallery-image">
+                            <img src="./assets/6.jpg" alt="Ảnh căn hộ 3" class="gallery-image">
+                        </div>
+                        <div class="image-indicators">
+                            <span class="indicator active"></span>
+                            <span class="indicator"></span>
+                            <span class="indicator"></span>
+                        </div>
+                    </div>
+                    <div class="post-actions">
+                        <button class="action-button"><i class="bi bi-heart"></i> Yêu thích</button>
+                        <button class="action-button"><i class="bi bi-chat"></i> Bình luận</button>
+                        <button class="action-button"><i class="bi bi-share"></i> Chia sẻ</button>
+                    </div>
+                    <div class="post-stats">
+                        <span>23 lượt thích</span> • <span>8 bình luận</span>
+                    </div>
+                </div>
+    
+                <div class="card">
+                    <h3 class="card-title">Tin tức & Mẹo</h3>
+                    <ul class="list">
+                        <li class="list-item">Mẹo tìm phòng trọ giá rẻ <span class="badge badge-primary">Mới</span></li>
+                        <li class="list-item">Kinh nghiệm đàm phán giá thuê</li>
+                        <li class="list-item">Những điều cần biết khi ký hợp đồng thuê nhà</li>
+                        <li class="list-item">Cách nhận biết nhà trọ an toàn</li>
+                        <li class="list-item">Chia sẻ kinh nghiệm thuê nhà lần đầu</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Trang tìm kiếm -->
+        <div class="page" id="search-page">
+            <div class="container">
+                <header>
+                    <h1>Tìm kiếm nhà trọ</h1>
+                    <p>Tùy chỉnh các tiêu chí để tìm kiếm</p>
+                </header>
+    
+                <div class="search-bar">
+                    <input type="text" placeholder="Nhập địa điểm, tên đường..." class="search-input">
+                    <button class="search-button"><i class="bi bi-search"></i></button>
+                </div>
+    
+                <div class="card">
+                    <h3 class="card-title">Bộ lọc tìm kiếm</h3>
+                    <div class="form-group">
+                        <label for="location">Khu vực</label>
+                        <select id="location" class="form-control">
+                            <option>Chọn khu vực</option>
+                            <option>Quận Cầu Giấy</option>
+                            <option>Quận Hai Bà Trưng</option>
+                            <option>Quận Đống Đa</option>
+                            <option>Quận Hoàn Kiếm</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Giá thuê</label>
+                        <select id="price" class="form-control">
+                            <option>Chọn khoảng giá</option>
+                            <option>Dưới 2 triệu</option>
+                            <option>2 - 3 triệu</option>
+                            <option>3 - 5 triệu</option>
+                            <option>Trên 5 triệu</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="type">Loại hình</label>
+                        <select id="type" class="form-control">
+                            <option>Chọn loại hình</option>
+                            <option>Phòng trọ</option>
+                            <option>Căn hộ mini</option>
+                            <option>Chung cư</option>
+                            <option>Nhà nguyên căn</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="area">Diện tích</label>
+                        <select id="area" class="form-control">
+                            <option>Chọn diện tích</option>
+                            <option>Dưới 20m²</option>
+                            <option>20 - 30m²</option>
+                            <option>30 - 50m²</option>
+                            <option>Trên 50m²</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Tiện ích</label>
+                        <div class="filter-tags">
+                            <span class="tag">Wifi</span>
+                            <span class="tag">Điều hòa</span>
+                            <span class="tag">Nóng lạnh</span>
+                            <span class="tag">Gác lửng</span>
+                            <span class="tag">Ban công</span>
+                            <span class="tag">Bảo vệ</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary">Áp dụng bộ lọc</button>
+                </div>
+    
+                <h3>Kết quả tìm kiếm gần đây</h3>
+                <div class="post-card">
+                    <div class="post-header">
+                        <img src="./assets/3.jpg" alt="Avatar" class="avatar">
+                        <div class="post-info">
+                            <h4 class="post-author">Lê Văn C</h4>
+                            <span class="post-time">1 ngày trước</span>
+                        </div>
+                        <div class="post-menu"><i class="bi bi-three-dots-vertical"></i></div>
+                    </div>
+                    <div class="post-content">
+                        <p>Phòng trọ quận Hai Bà Trưng, 20m², điều hòa, nóng lạnh, giờ giấc tự do.</p>
+                        <p class="price">2.500.000đ/tháng</p>
+                        <p class="location"><i class="bi bi-geo-alt-fill"></i> Hai Bà Trưng, Hà Nội</p>
+                    </div>
+                    <div class="image-gallery">
+                        <div class="image-slider">
+                            <img src="./assets/5.jpg" alt="Ảnh phòng trọ 1" class="gallery-image">
+                            <img src="./assets/6.jpg" alt="Ảnh phòng trọ 2" class="gallery-image">
+                        </div>
+                        <div class="image-indicators">
+                            <span class="indicator active"></span>
+                            <span class="indicator"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Trang chi tiết nhà trọ -->
+        <div class="page" id="detail-page">
+            <div class="rental-detail-header">
+                <img src="./assets/1.jpg" alt="Ảnh chi tiết" class="detail-image">
+                <button class="back-button" onclick="navigateTo('home-page')"><i class="bi bi-arrow-left"></i></button>
+                <div class="gallery-count">1/5 ảnh</div>
+            </div>
+            <div class="rental-detail-content">
+                <div class="detail-price">2.800.000đ/tháng</div>
+                <h2 class="detail-title">Phòng trọ khu vực Cầu Giấy, 25m², có gác lửng</h2>
+                <div class="detail-info">
+                    <div class="info-item">
+                        <div class="info-value">25m²</div>
+                        <div>Diện tích</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-value">1PN</div>
+                        <div>Phòng ngủ</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-value">1WC</div>
+                        <div>Phòng tắm</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-value"><i class="bi bi-star-fill"></i> 4.5</div>
+                        <div>Đánh giá</div>
+                    </div>
+                </div>
+                <div class="detail-section">
+                    <h3>Mô tả</h3>
+                    <p>Cho thuê phòng trọ khu vực Cầu Giấy, diện tích 25m², có gác lửng, không chung chủ. Phòng mới xây, sạch sẽ, thoáng mát. Khu vực an ninh, gần trường đại học, siêu thị, chợ...</p>
+                    <p>Cơ sở vật chất đầy đủ: điều hòa, nóng lạnh, tủ quần áo, kệ bếp. Internet và nước sinh hoạt miễn phí. Giờ giấc tự do, không chung chủ.</p>
+                </div>
+                <div class="detail-section">
+                    <h3>Tiện ích</h3>
+                    <div class="amenities">
+                        <div class="amenity"><span class="amenity-icon"><i class="bi bi-droplet"></i></span> Nóng lạnh</div>
+                        <div class="amenity"><span class="amenity-icon"><i class="bi bi-snow"></i></span> Điều hòa</div>
+                        <div class="amenity"><span class="amenity-icon"><i class="bi bi-wifi"></i></span> Internet</div>
+                        <div class="amenity"><span class="amenity-icon"><i class="bi bi-house"></i></span> Gác lửng</div>
+                        <div class="amenity"><span class="amenity-icon"><i class="bi bi-tv"></i></span> Có nội thất</div>
+                        <div class="amenity"><span class="amenity-icon"><i class="bi bi-door-closed"></i></span> WC riêng</div>
+                    </div>
+                </div>
+                <div class="detail-section">
+                    <h3>Vị trí</h3>
+                    <p><i class="bi bi-geo-alt-fill"></i> Cầu Giấy, Hà Nội</p>
+                    <div style="background-color: var(--background-secondary); height: 200px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-top: 10px;">
+                        <span>Bản đồ vị trí</span>
+                    </div>
+                </div>
+                <div class="detail-section">
+                    <h3>Liên hệ chủ trọ</h3>
+                    <div class="post-header" style="margin-bottom: 0;">
+                        <img src="./assets/1.jpg" alt="Avatar" class="avatar">
+                        <div class="post-info">
+                            <h4 class="post-author">Nguyễn Văn A</h4>
+                            <span class="post-time">Phản hồi nhanh</span>
+                        </div>
+                        <button class="btn btn-primary" style="padding: 8px 15px;"><i class="bi bi-telephone-fill"></i> Gọi</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Trang cá nhân -->
+        <div class="page" id="profile-page">
+            <div class="container">
+                <div class="profile-header">
+                    <img src="./assets/1.jpg" alt="Avatar" class="profile-avatar">
+                    <h2 class="profile-name">Nguyễn Văn Người Dùng</h2>
+                    <p class="profile-bio">Người đi thuê nhà | Đang sống tại Hà Nội</p>
+                    <button class="btn btn-primary"><i class="bi bi-pencil"></i> Chỉnh sửa hồ sơ</button>
+                    <div class="profile-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">7</div>
+                            <div class="stat-label">Đã đăng</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">12</div>
+                            <div class="stat-label">Yêu thích</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">4.8</div>
+                            <div class="stat-label">Đánh giá</div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="card">
+                    <h3 class="card-title">Cài đặt tài khoản</h3>
+                    <ul class="list">
+                        <li class="list-item"><i class="bi bi-person"></i> Thông tin cá nhân</li>
+                        <li class="list-item"><i class="bi bi-bell"></i> Thông báo</li>
+                        <li class="list-item"><i class="bi bi-shield-lock"></i> Bảo mật</li>
+                        <li class="list-item"><i class="bi bi-credit-card"></i> Phương thức thanh toán</li>
+                        <li class="list-item"><i class="bi bi-question-circle"></i> Trợ giúp & Hỗ trợ</li>
+                        <li class="list-item"><i class="bi bi-info-circle"></i> Về ứng dụng</li>
+                        <li class="list-item" style="color: var(--danger-color);"><i class="bi bi-box-arrow-right"></i> Đăng xuất</li>
+                    </ul>
+                </div>
+    
+                <div class="card">
+                    <h3 class="card-title">Tin đã đăng</h3>
+                    <div class="post-card" style="box-shadow: none; padding: 0; margin-bottom: 0;">
+                        <div class="post-content">
+                            <p>Tìm người ở ghép tại Đống Đa, 1.2 triệu/tháng, ở với 2 bạn nữ.</p>
+                            <p class="price">1.200.000đ/tháng</p>
+                            <p class="location"><i class="bi bi-geo-alt-fill"></i> Đống Đa, Hà Nội</p>
+                        </div>
+                        <div class="post-stats">
+                            <span>Đăng 2 tuần trước</span> • <span>15 lượt xem</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Bottom navigation for mobile -->
+        <div class="bottom-nav">
+            <a href="#" class="nav-item active" onclick="navigateTo('home-page')">
+                <div class="nav-icon"><i class="bi bi-house-door"></i></div>
+                <div>Trang chủ</div>
+            </a>
+            <a href="#" class="nav-item" onclick="navigateTo('search-page')">
+                <div class="nav-icon"><i class="bi bi-search"></i></div>
+                <div>Tìm kiếm</div>
+            </a>
+            <a href="#" class="nav-item">
+                <div class="nav-icon"><i class="bi bi-plus-circle"></i></div>
+                <div>Đăng tin</div>
+            </a>
+            <a href="#" class="nav-item">
+                <div class="nav-icon"><i class="bi bi-heart"></i></div>
+                <div>Yêu thích</div>
+            </a>
+            <a href="#" class="nav-item" onclick="navigateTo('profile-page')">
+                <div class="nav-icon"><i class="bi bi-person"></i></div>
+                <div>Cá nhân</div>
+            </a>
+        </div>
+    
+        <!-- Dev tool for color testing -->
+        <button class="dev-tool" id="devToolToggle"><i class="bi bi-palette"></i></button>
+        
+        <!-- Color editor panel -->
+        
+    </main>
+
+    <div class="color-editor" id="colorEditor">
+        <h2>Tùy chỉnh màu sắc</h2>
+        <p>Thay đổi màu sắc và xem trước kết quả ngay lập tức</p>
+        
+        <div id="colorControls">
+            <!-- Color inputs will be added here by JavaScript -->
+        </div>
+        
+        <div class="color-editor-actions">
+            <button style="background-color: var(--danger-color); color: white;" id="resetColors"><i class="bi bi-arrow-counterclockwise"></i> Khôi phục mặc định</button>
+            <button style="background-color: var(--success-color); color: white;" id="applyColors"><i class="bi bi-check-lg"></i> Áp dụng</button>
+            <button style="background-color: var(--border-color); color: var(--text-primary);" id="closeEditor"><i class="bi bi-x"></i> Đóng</button>
+        </div>
+    </div>
+
+    <script>
+        // Toggle between light and dark theme
+        document.getElementById('themeToggle').addEventListener('change', function() {
+            if(this.checked) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+        
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            document.getElementById('themeToggle').checked = true;
+        }
+        
+        // Navigation between pages
+        function navigateTo(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update navigation items
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Find matching nav item and activate it
+            const pageToNavMap = {
+                'home-page': 0,
+                'search-page': 1,
+                'profile-page': 4
+            };
+            
+            const navIndex = pageToNavMap[pageId];
+            if (navIndex !== undefined) {
+                document.querySelectorAll('.nav-item')[navIndex].classList.add('active');
+            }
+        }
+        
+        // Dev tool for color testing
+        const devToolToggle = document.getElementById('devToolToggle');
+        const colorEditor = document.getElementById('colorEditor');
+        const colorControls = document.getElementById('colorControls');
+        const resetColorsBtn = document.getElementById('resetColors');
+        const applyColorsBtn = document.getElementById('applyColors');
+        const closeEditorBtn = document.getElementById('closeEditor');
+        
+        // Default color values
+        const defaultLightColors = {
+            '--background-primary': '#f8f9fa',
+            '--background-secondary': '#e9ecef',
+            '--text-primary': '#212529',
+            '--text-secondary': '#6c757d',
+            '--accent-color': '#0d6efd',
+            '--accent-color-light': '#cfe2ff',
+            '--success-color': '#198754',
+            '--warning-color': '#ffc107',
+            '--danger-color': '#dc3545',
+            '--info-color': '#0dcaf0',
+            '--border-color': '#dee2e6'
+        };
+        
+        const defaultDarkColors = {
+            '--background-primary': '#212529',
+            '--background-secondary': '#343a40',
+            '--text-primary': '#f8f9fa',
+            '--text-secondary': '#adb5bd',
+            '--accent-color': '#0d6efd',
+            '--accent-color-light': '#0d47a1',
+            '--success-color': '#28a745',
+            '--warning-color': '#ffc107',
+            '--danger-color': '#dc3545',
+            '--info-color': '#0dcaf0',
+            '--border-color': '#495057'
+        };
+        
+        // Load custom colors from localStorage
+        function loadCustomColors() {
+            const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+            const savedColors = localStorage.getItem(`customColors_${theme}`);
+            
+            if (savedColors) {
+                const colors = JSON.parse(savedColors);
+                Object.keys(colors).forEach(varName => {
+                    document.documentElement.style.setProperty(varName, colors[varName]);
+                });
+            }
+        }
+        
+        // Initialize color controls in the editor
+        function initColorControls() {
+            colorControls.innerHTML = '';
+            const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+            const defaultColors = theme === 'dark' ? defaultDarkColors : defaultLightColors;
+            const savedColors = localStorage.getItem(`customColors_${theme}`);
+            const currentColors = savedColors ? JSON.parse(savedColors) : defaultColors;
+            
+            Object.keys(defaultColors).forEach(varName => {
+                const currentValue = currentColors[varName] || defaultColors[varName];
+                const varNameFormatted = varName.replace('--', '').replace(/-/g, ' ');
+                
+                const controlGroup = document.createElement('div');
+                controlGroup.className = 'color-picker-group';
+                
+                const label = document.createElement('label');
+                label.textContent = varNameFormatted;
+                label.for = `color_${varName}`;
+                
+                const colorInput = document.createElement('input');
+                colorInput.type = 'color';
+                colorInput.id = `color_${varName}`;
+                colorInput.value = currentValue;
+                colorInput.dataset.var = varName;
+                
+                const preview = document.createElement('div');
+                preview.className = 'color-sample-preview';
+                preview.style.backgroundColor = currentValue;
+                
+                const textInput = document.createElement('input');
+                textInput.type = 'text';
+                textInput.value = currentValue;
+                textInput.dataset.var = varName;
+                
+                // Update color on change
+                colorInput.addEventListener('input', function() {
+                    const value = this.value;
+                    const varName = this.dataset.var;
+                    document.documentElement.style.setProperty(varName, value);
+                    preview.style.backgroundColor = value;
+                    textInput.value = value;
+                });
+                
+                // Update from text input
+                textInput.addEventListener('input', function() {
+                    const value = this.value;
+                    const varName = this.dataset.var;
+                    try {
+                        document.documentElement.style.setProperty(varName, value);
+                        preview.style.backgroundColor = value;
+                        colorInput.value = value;
+                    } catch (e) {
+                        // Invalid color format
+                    }
+                });
+                
+                controlGroup.appendChild(label);
+                controlGroup.appendChild(colorInput);
+                controlGroup.appendChild(preview);
+                controlGroup.appendChild(textInput);
+                colorControls.appendChild(controlGroup);
+            });
+        }
+        
+        // Save current colors to localStorage
+        function saveCurrentColors() {
+            const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+            const colors = {};
+            
+            Object.keys(theme === 'dark' ? defaultDarkColors : defaultLightColors).forEach(varName => {
+                colors[varName] = getComputedStyle(document.documentElement).getPropertyValue(varName).trim();
+            });
+            
+            localStorage.setItem(`customColors_${theme}`, JSON.stringify(colors));
+        }
+        
+        // Reset colors to default
+        function resetColors() {
+            const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+            const defaultColors = theme === 'dark' ? defaultDarkColors : defaultLightColors;
+            
+            Object.keys(defaultColors).forEach(varName => {
+                document.documentElement.style.setProperty(varName, defaultColors[varName]);
+            });
+            
+            // Remove saved custom colors
+            localStorage.removeItem(`customColors_${theme}`);
+            
+            // Reinitialize controls
+            initColorControls();
+        }
+        
+        // Toggle dev tool
+        devToolToggle.addEventListener('click', function() {
+            colorEditor.classList.add('active');
+            initColorControls();
+        });
+        
+        // Close color editor
+        closeEditorBtn.addEventListener('click', function() {
+            colorEditor.classList.remove('active');
+            loadCustomColors(); // Reset to saved colors if canceled
+        });
+        
+        // Reset colors
+        resetColorsBtn.addEventListener('click', resetColors);
+        
+        // Apply colors
+        applyColorsBtn.addEventListener('click', function() {
+            saveCurrentColors();
+            colorEditor.classList.remove('active');
+        });
+        
+        // Load saved colors on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadCustomColors();
+            
+            // Kiểm tra xem người dùng đã đăng nhập chưa
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            if (!isLoggedIn) {
+                navigateTo('login-page');
+            }
+        });
+        
+        // Listen for theme changes to load proper colors
+        document.getElementById('themeToggle').addEventListener('change', function() {
+            // Wait a bit for the theme to be updated
+            setTimeout(loadCustomColors, 50);
+        });
+    </script>
+</body>
+</html>
